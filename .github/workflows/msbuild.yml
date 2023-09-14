@@ -45,7 +45,7 @@ jobs:
         msbuild -m build/Ultimate-ASI-Loader-Win32.sln /property:Configuration=Release /property:Platform=Win32
 
     - name: Pack binaries
-      run: ./release.ps1
+      run: ./release-x64.bat
 
     - name: Upload artifact (Win32)
       uses: actions/upload-artifact@v3
