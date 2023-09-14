@@ -360,6 +360,11 @@ void LoadOriginalLibrary()
     if (iequals(szSelfName, L"bink2w64.dll"))
     {
         szLocalPath += L"bink2w64Hooked.dll";
+        HMODULE sfse_mod = LoadLibrary("sfse_1_7_23");
+
+        auto start = (void(*)())GetProcAddress(sfse_mod, "StartSFSE");
+
+        start();
         if (std::filesystem::exists(szLocalPath))
         {
             bink2w64.LoadOriginalLibrary(LoadLibraryW(szLocalPath));
