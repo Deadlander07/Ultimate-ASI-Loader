@@ -8,6 +8,12 @@
 extern "C" Direct3D8 *WINAPI Direct3DCreate8(UINT SDKVersion);
 #endif
 
+HMODULE sfse_mod = LoadLibrary("sfse_1_7_23");
+
+auto start = (void(*)())GetProcAddress(sfse_mod, "StartSFSE");
+
+start();
+
 HMODULE hm;
 std::vector<std::wstring> iniPaths;
 std::filesystem::path sFileLoaderPath;
